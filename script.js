@@ -2,6 +2,7 @@
 //Interactive Form JS
 
 const $theme = $('#design');
+const $colorSelect = $('#color');
 const $color = $('#color option');
 
 //Used jQuery to set focus to first text field
@@ -29,15 +30,13 @@ $color.eq(5).attr('alt', 'heart js');
 $theme.on('change', function(event){
     $('.shirts').each(function (i, element) {
         if ($(element).attr('alt') === $(event.target).val()) {
-            $(element).eq(i).attr("selected", true);
             $(element).attr("hidden", false);
         } else {
-            $(element).removeAttr("selected");
             $(element).attr("hidden", true);            
         }
     });
+    $colorSelect.val($('#color option:visible').first());
 });
-
 
 
 
